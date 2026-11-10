@@ -5,145 +5,227 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Lê Phương Hảo</title>
     <style>
-        :root {
-            --bg-color: #f9fafb;
-            --text-main: #1f2937;
-            --text-muted: #4b5563;
-            --accent: #2563eb;
-            --card-bg: #ffffff;
-            --border-color: #e5e7eb;
-        }
+        * { box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
+            background-color: #e5e7eb;
+            color: #1f2937;
+            line-height: 1.5;
             padding: 20px;
         }
-        .wrap {
-            max-width: 720px;
-            margin: 40px auto;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid var(--border-color);
+        .cv-container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #ffffff;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
         }
-        header {
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 20px;
+        /* Cột bên trái (Sidebar) */
+        .sidebar {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 30px 20px;
+        }
+        .avatar-box {
+            text-align: center;
             margin-bottom: 24px;
         }
-        h1 {
-            font-size: 2.2rem;
-            margin: 0 0 8px 0;
-            color: var(--text-main);
+        .avatar-box img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #3b82f6;
         }
-        .role {
-            font-size: 1.1rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 16px;
+        .sidebar h1 {
+            font-size: 1.4rem;
+            text-align: center;
+            margin: 12px 0 20px 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
-        .links a {
-            display: inline-block;
-            margin-right: 16px;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
+        .side-section {
+            margin-bottom: 28px;
         }
-        .links a:hover {
-            text-decoration: underline;
+        .side-section h3 {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            color: #93c5fd;
         }
-        section {
-            margin-top: 32px;
+        .contact-item, .side-section p, .side-section li {
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            margin-bottom: 8px;
         }
-        h2 {
-            font-size: 1.25rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-bottom: 16px;
-            color: var(--text-main);
+        .contact-item {
+            word-break: break-all;
         }
-        ul {
-            padding-left: 20px;
+        .side-section ul {
+            padding-left: 16px;
             margin: 0;
         }
-        li {
-            margin-bottom: 10px;
-            color: var(--text-muted);
+        .side-section li {
+            margin-bottom: 6px;
         }
-        li strong {
-            color: var(--text-main);
+
+        /* Cột bên phải (Main Content) */
+        .main-content {
+            padding: 35px 30px;
+            background-color: #ffffff;
         }
-        .job-item {
+        .main-section {
+            margin-bottom: 28px;
+        }
+        .main-section h2 {
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            color: #0f172a;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 6px;
             margin-bottom: 16px;
+            letter-spacing: 0.5px;
         }
-        .job-title {
+        .job-item, .edu-item {
+            margin-bottom: 20px;
+        }
+        .job-header, .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+        .job-title, .edu-title {
             font-weight: bold;
-            color: var(--text-main);
+            color: #1e293b;
+            font-size: 0.98rem;
         }
-        .job-time {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+        .job-company {
+            font-weight: 600;
+            color: #2563eb;
+            font-size: 0.92rem;
+            margin-bottom: 6px;
         }
-        footer {
-            margin-top: 40px;
-            text-align: center;
+        .job-time, .edu-time {
             font-size: 0.85rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
-            padding-top: 20px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        .main-section ul {
+            padding-left: 18px;
+            margin: 0;
+        }
+        .main-section li {
+            font-size: 0.88rem;
+            color: #475569;
+            margin-bottom: 6px;
+        }
+
+        /* Responsive cho điện thoại */
+        @media (max-width: 768px) {
+            .cv-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="wrap">
-        <header>
+    <div class="cv-container">
+        <!-- CỘT TRÁI -->
+        <div class="sidebar">
+            <div class="avatar-box">
+                <!-- Đảm bảo bạn đã upload file avatar.jpg lên GitHub -->
+                <img src="avatar.jpg" alt="Lê Phương Hảo">
+            </div>
             <h1>Lê Phương Hảo</h1>
-            <div class="role">Test Engineer & Product Engineer</div>
-            <div class="links">
-                <a href="mailto:email@example.com">Email</a>
-                <a href="https://github.com/hao01672565204" target="_blank">GitHub</a>
+
+            <div class="side-section">
+                <h3>Thông tin cá nhân</h3>
+                <div class="contact-item">📞 0329660978</div>
+                <div class="contact-item">📧 haole27111@gmail.com</div>
+                <div class="contact-item">📍 Hiep Cuong, Hung Yen</div>
+                <div class="contact-item">📅 27/11/2000</div>
             </div>
-        </header>
 
-        <section>
-            <h2>Giới thiệu bản thân</h2>
-            <p>Kỹ sư chuyên môn về kiểm tra điện tử (FCT, RF testing) và chẩn đoán kỹ thuật. Có kinh nghiệm thực tế trong môi trường sản xuất công nghệ cao, quản lý trạm test và xử lý sự cố phần cứng.</p>
-        </section>
+            <div class="side-section">
+                <h3>Mục tiêu nghề nghiệp</h3>
+                <p>Mong muốn vận dụng kinh nghiệm thực tế và kỹ năng chuyên môn về kiểm tra điện tử, RF testing và chẩn đoán kỹ thuật để hoàn thành tốt công việc, không ngừng học hỏi và đóng góp vào sự phát triển của công ty.</p>
+            </div>
 
-        <section>
-            <h2>Kinh nghiệm làm việc</h2>
-            <div class="job-item">
-                <div class="job-title">Test Engineer / Product Engineer</div>
-                <div class="job-time">Fukang Technology & Gemtek</div>
+            <div class="side-section">
+                <h3>Kỹ năng</h3>
                 <ul>
-                    <li>Quản lý, vận hành và duy trì ổn định các trạm test FCT, RF.</li>
-                    <li>Phân tích log test, tối ưu quy trình kiểm tra linh kiện và phần cứng.</li>
+                    <li>FCT & RF Testing</li>
+                    <li>Chẩn đoán điện tử / Ô tô (OBD-II)</li>
+                    <li>Python Scripting, Altium</li>
+                    <li>Quản lý & vận hành trạm test</li>
                 </ul>
             </div>
-            <div class="job-item">
-                <div class="job-title">Automotive Diagnostic Engineer</div>
-                <div class="job-time">VinFast</div>
+
+            <div class="side-section">
+                <h3>Ngôn ngữ</h3>
                 <ul>
-                    <li>Sử dụng công cụ chuyên dụng OBD-II chẩn đoán lỗi hệ thống điện/điện tử ô tô và giám sát kỹ thuật.</li>
+                    <li>Tiếng Việt (Bản ngữ)</li>
+                    <li>Tiếng Anh (Đọc hiểu kỹ thuật)</li>
+                    <li>Tiếng Trung (Giao tiếp sản xuất)</li>
                 </ul>
             </div>
-        </section>
+        </div>
 
-        <section>
-            <h2>Kỹ năng</h2>
-            <ul>
-                <li><strong>Chuyên môn:</strong> FCT, RF Testing, Điện tử, Chẩn đoán kỹ thuật ô tô, Python scripting, Altium.</li>
-                <li><strong>Ngôn ngữ:</strong> Tiếng Việt, Tiếng Anh (Tài liệu kỹ thuật), Tiếng Trung (Giao tiếp sản xuất).</li>
-            </ul>
-        </section>
+        <!-- CỘT PHẢI -->
+        <div class="main-content">
+            <!-- HỌC VẤN -->
+            <div class="main-section">
+                <h2>Học vấn</h2>
+                <div class="edu-item">
+                    <div class="edu-header">
+                        <span class="edu-title">Đại học Sư phạm Kỹ thuật Hưng Yên</span>
+                        <span class="edu-time">2018 - 2022</span>
+                    </div>
+                    <div style="font-size: 0.9rem; color: #475569;">Chuyên ngành: Điện - Điện tử</div>
+                </div>
+            </div>
 
-        <footer>
-            &copy; 2026 Lê Phương Hảo. Built with GitHub Pages.
-        </footer>
+            <!-- KINH NGHIỆM LÀM VIỆC -->
+            <div class="main-section">
+                <h2>Kinh nghiệm làm việc</h2>
+                
+                <div class="job-item">
+                    <div class="job-header">
+                        <span class="job-title">Test Engineer (TE)</span>
+                        <span class="job-time">07/2025 - 08/2026</span>
+                    </div>
+                    <div class="job-company">Gemtek</div>
+                    <ul>
+                        <li>Setup, vận hành các trạm test FCT cho card Wifi Intel (Wifi, Bluetooth).</li>
+                        <li>Phân tích log test, xác định nguyên nhân lỗi và phối hợp xử lý sự cố trên dây chuyền.</li>
+                        <li>Hỗ trợ NPI/model mới, kiểm tra điều kiện vận hành và xác nhận khả năng hoạt động trước khi đưa vào sản xuất hàng loạt.</li>
+                        <li>Cải thiện hiệu suất nhằm giảm tỷ lệ kiểm tra lại (retest) xuống dưới 3% và tỷ lệ NTF dưới 0.8%.</li>
+                    </ul>
+                </div>
+
+                <div class="job-item">
+                    <div class="job-header">
+                        <span class="job-title">Product Engineer (PE)</span>
+                        <span class="job-time">09/2022 - 03/2025</span>
+                    </div>
+                    <div class="job-company">Neweb Vietnam</div>
+                    <ul>
+                        <li>Setup và vận hành trạm test tính năng (Wifi, Bluetooth, 5G) cho router, modem (khách hàng AT&T, Verizon, Calix, LADT...).</li>
+                        <li>Xác minh ATS, Firmware, Fixture trước khi triển khai model mới, đảm bảo trạm test ổn định.</li>
+                        <li>Báo cáo GRR và loop test khi có model mới.</li>
+                        <li>Phối hợp R&D thực hiện các dự án costdown, giảm cycle time và nâng cao UPH.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
